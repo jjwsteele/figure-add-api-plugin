@@ -10,5 +10,3 @@ API="api";
 echo "upstream $APP$API { server $IP:$((PORT-1)); }" > tmpfile
 cat $FIGURE_ROOT/$APP/nginx.conf >> tmpfile
 mv tmpfile $FIGURE_ROOT/$APP/nginx.conf
-
-nginx -t

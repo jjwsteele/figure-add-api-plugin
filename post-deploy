@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -eo pipefail; [[ $FIGURE_TRACE ]] && set -x
+
+APP="$1"
+
+docker exec -d ${APP}_api_1 rake db:setup db:migrate db:seed

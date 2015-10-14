@@ -9,6 +9,6 @@ API="api";
 MOCK="mock";
 
 echo "upstream $APP$API { server $IP:$((PORT-1)); }" > tmpfile
-echo "upstream $APP$API { server $IP:$((PORT-2)); }" > tmpfile
+echo "upstream $APP$MOCK { server $IP:$((PORT-2)); }" >> tmpfile
 cat $FIGURE_ROOT/$APP/nginx.conf >> tmpfile
 mv tmpfile $FIGURE_ROOT/$APP/nginx.conf

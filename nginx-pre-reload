@@ -6,7 +6,9 @@ set -eo pipefail; [[ $FIGURE_TRACE ]] && set -x
 APP="$1"; PORT="$2"; IP="$3"
 
 API="api";
+MOCK="mock";
 
 echo "upstream $APP$API { server $IP:$((PORT-1)); }" > tmpfile
+echo "upstream $APP$API { server $IP:$((PORT-2)); }" > tmpfile
 cat $FIGURE_ROOT/$APP/nginx.conf >> tmpfile
 mv tmpfile $FIGURE_ROOT/$APP/nginx.conf
